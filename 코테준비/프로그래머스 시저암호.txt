@@ -1,0 +1,47 @@
+#include <string>
+#include <vector>
+#define DEBUG 1
+
+using namespace std;
+
+string solution(string s, int n) {
+    string answer = "";
+    int len = s.size();
+    char temp=0;
+    for(int i=0 ; i<len ; i++) {
+        temp = s[i];
+        if(temp == 32) {
+            answer = answer+' ';
+            continue;
+        }
+        
+        
+        if('a'<=temp && temp <='z'){
+            temp = temp+(char)n;
+            if(temp>'z') {
+                temp = ((temp - 'z')%26)+'a';
+            }
+            else {}
+            
+        }
+        else if('A'<=temp && temp <='Z'){
+            temp = temp+(char)n;
+            if(temp > 'Z') {
+                temp = ((temp  - 'Z')%26)+'A';
+            }
+            else {}
+        }
+        else {
+            puts("error");
+        }
+            
+    
+        
+        
+        answer = answer+temp;
+    }
+    if(DEBUG) {
+        printf("len:%d, n:%d ",len,n);
+    }
+    return answer;
+}

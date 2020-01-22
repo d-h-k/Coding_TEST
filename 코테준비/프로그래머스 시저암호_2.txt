@@ -1,0 +1,43 @@
+#include <string>
+#include <vector>
+#define DEBUG 1
+
+using namespace std;
+
+string solution(string s, int n) {
+    string answer = "";
+    int len = s.size();
+    char temp=0;
+    char offset=0;
+    for(int i=0 ; i<len ; i++) {
+        temp = s[i];
+        
+        //공백검사
+        if(temp == 32) {
+            answer = answer+' ';
+            continue;
+        }
+        
+        //대소문자 구별
+        if('a'<=temp && temp <='z'){
+            offset='a';
+        }
+        else if('A'<=temp && temp <='Z'){
+            offset='A';
+        }
+        else {
+            //insert error
+            printf("%c:insert error\n",temp);
+        }
+        
+        //순환검사(오버플로)
+        
+        
+        
+        answer = answer+temp;
+    }
+    if(DEBUG) {
+        printf("len:%d, n:%d ",len,n);
+    }
+    return answer;
+}

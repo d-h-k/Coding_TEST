@@ -1,0 +1,49 @@
+#include <string>
+#include <vector>
+#include <stdio.h>
+using namespace std;
+
+int solution(string skill, vector<string> skill_trees) {
+    int answer = 0;
+    int s_len = skill.size();
+    int v_num = skill_trees.size();
+    int ii=0;
+    
+    for(int i=0 ; i<v_num ; i++) {//각각의 테스트케이스 스킬트리
+        ii=0;
+        int st_len = skill_trees[i].size();
+        printf("i:%d, sktree length:%d\n",i,st_len);
+        
+        
+        for(int j=0 ; j <st_len ; j++) {//BACDE
+            if(skill[ii] == skill_trees[i][j]) {
+                printf("hi:%c, skill[ii]:%c\n",skill_trees[i][j],skill[ii]);
+                ii++;
+            }
+            for(int k=0 ; k<s_len ; k++) {
+                if(skill[ii+k] == skill_trees[i][j]) {
+                    answer++;
+                    break;
+                }    
+            }
+            
+        }
+    }
+    
+    //answer =  v_num - answer +1;
+    return answer;
+}
+
+
+/*
+
+        for(int j=st_len ; j > 0 ; j--) {//BACDE
+            if(skill[ii] == skill_trees[i][j]) {
+                printf("hi:%c, skill[ii]:%c\n",skill_trees[i][j],skill[ii]);
+                ii--;
+                if(skill[ii]=='B') {
+                    answer++;
+                }
+            }
+        }
+*/

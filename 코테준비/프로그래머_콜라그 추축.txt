@@ -1,0 +1,28 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int solution(int num) {
+    int answer = 0;
+    int i=0;
+    long mynum= (long)num;
+    for(i=0 ; i<500 ; i++) {
+        if(mynum==1) {
+            return answer;
+        }
+        else {
+            if(mynum%2 == 0) {
+                mynum = mynum/2;
+                answer++;
+            }
+            else{
+                num = (num*3)+1;
+                answer++;
+            }
+        }
+               
+    }
+    //answer = i;
+    return -1;
+}
