@@ -2,41 +2,39 @@
 
 using namespace std;
 
-char HexaToBin[16][5] = {"0000","0001","0010","0011",
-"0100","0101","0110","0111",
-"1000","1001","1010","1011",
-"1100","1101","1110","1111",
-};
+int solve();
+
+char HexaToBin[16][5] = { "0000","0001","0010","0011","0100","0101","0110",
+"0111","1000","1001","1010","1011","1100","1101","1110","1111", };
 
 int HashTbl[7000],Row,Col;
 char Arr[2000][2000];
 const int DEBUG = 1;
-int T,N,test_case;
-
-int solve();
 
 int main(int argc, char** argv)
 {
+	int T,N,test_case;
 	freopen("sample_input.txt", "r", stdin);
 	cin>>T;
 	/* */
 	char a;
-	for(test_case = 1; test_case <=3 /*T*/; ++test_case)
+	for(test_case = 1; test_case <=T; ++test_case)
 	{
 		for(int i=0 ; i<7000 ; ++i) {
 			HashTbl[i]=-1;
 		}
-		HashTbl[3211]=0; HashTbl[2221]=0; HashTbl[2122]=0;
-		HashTbl[1411]=0; HashTbl[1132]=0; HashTbl[1231]=0;
-		HashTbl[1114]=0; HashTbl[1312]=0; HashTbl[1213]=0;
-		HashTbl[3112]=0;
+		HashTbl[3211]=0; HashTbl[2221]=1; HashTbl[2122]=2;
+		HashTbl[1411]=3; HashTbl[1132]=4; HashTbl[1231]=5;
+		HashTbl[1114]=6; HashTbl[1312]=7; HashTbl[1213]=8;
+		HashTbl[3112]=9;
 		
 		//puts("=====================================");
 		/////////////////////////////////////////////////////////////////////////////////////////////
 		/* */
 		//printf("Y:%d, X:%d, dir:%d, cnt:%d, num:%d\n",Y,X,dir,cnt,num);	
 		///////////////////////////////////////////////////////////////////////////////////////////
-		cin>>Row>>Col;
+		cin >> Row >> Col;
+		
 		for(int i=0; i<Row ; i++) {
 			for(int j=0 ; j<Col ; j++) {
 				cin>>a;
@@ -75,7 +73,7 @@ int parse(int row,int col, int scale) {
 		}
 		else {
 			cnt/= scale;
-			key=key+10+cnt;
+			key=key*10+cnt;
 			cnt=1;
 		}
 	}
@@ -91,7 +89,7 @@ int solve() {
 				int scale = calcScale(i,j), startCol = j-(56*scale) +1;
 				bool flag = true;
 				for(int k=0 ; k<8 ; ++k) {
-					code[k] = parse(i, startCol+k*7*scale)
+					code[k] = parse(i, startCol+k*7*scale,scale);
 					if(code[k] < 0) {	
 						flag = false;
 						break;
