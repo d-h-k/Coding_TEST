@@ -1,80 +1,54 @@
 #include<iostream>
 
 using namespace std;
-bool pencol(int len, int y, int x);
-bool penrow(int len, int y, int x);
-char map[9][9];
+
 int main(int argc, char** argv)
 {
-	int test_case;
-	int T=10,DEBUG=1;
+	int test_case,answer=0;
+	int T=10,DEBUG=1,tc=0;
 	/*	*/
 	freopen("input.txt", "r", stdin);
-	//cin>>T;
+
 	for(test_case = 1; test_case <= T; ++test_case)
 	{	
-		int plen=0,answer=0;
-		//string s[11];
-		scanf("%d",&plen);
+		answer=0;
+		scanf("%d",&tc);
+		//scanf("%s",c_map);
+		//scanf("%s",c_pat);
 		/////////////////////////////////////////////////////////////////////////////////////////////
-		for(int i=1 ; i<=8 ; i++) {
-			for(int j=1 ; j<=8 ; j++) {
-				cin>>map[i][j];
-			}
-		}
-		//cin>>endl;
-		if(DEBUG) {
-			cout<<"testcase:"<<test_case<<" , plen:"<<plen<<endl;
-			for(int i=1 ; i<=8 ; i++) {
-				for(int j=1 ; j<=8 ; j++) {
-					cout<<map[i][j]<<' ';
+		string pat;// = c_pat;
+		string map;// =/ c_map;
+		cin>>pat>>pat;
+		//cin>>map;
+		//c_map = 
+		//c_pat = pat.c_str();
+		int len_map = map.size();
+		int len_pat = pat.size();
+		for(int i=0 ; i<len_map ; i++) {
+			//
+			for(int j=0 ; j<len_pat ; j++) {
+				if(map[i] == pat[j]) {
+					//puts("!!");		
+					
+					if(j==len_pat) {
+						answer++;	
+					}	
 				}
-				puts("");
+				else {
+					break;
+				}
 			}
-			cout<<endl;		
+ 		}
+		//cin>>endl;
+		
+		printf("#%d %d\n",test_case,answer);
+		if(DEBUG) {
+			printf("tc:%d\nmap:%s\npat:%s\n\n\n",tc,map.c_str(),map.c_str());
+			
 		}
 	
-		for(int i=1 ; i<=8-plen ; i++) {
-			for(int j=1 ; j<=8 ; j++) {
-				if(pencol(plen,j,i)) {
-					answer++;
-				}	
-			}
-		}
-		
-		for(int i=1 ; i<=8 ; i++) {
-			for(int j=1 ; j<=8-plen ; j++) {
-				if(penrow(plen,j,i)) {
-					answer++;
-				}	
-			}
-		}
-		
-		cout<<'#'<<test_case<<' '<<answer<<endl;
-		
 
 	}
 	return 0;//정상종료시 반드시 0을 리턴해야합니다.
-}
-
-bool pencol(int len, int y, int x) {
-	if(len%2==0) {
-		
-	}
-	for(int i=0 ; i<len/2 ; i++) {
-		//puts("!!!");
-		if(map[y+i][x]!=map[y+len-i-1][x] ){
-			return false;
-		}
-	}
-	return true;	
-}
-bool penrow(int len, int x, int y) {
-	for(int i=0 ; i<len/2 ; i++) {
-		if(map[y][x+i]!=map[y][x+len-i-1] ){
-			return false;
-		}
-	}
-	return true;	
 }
 
