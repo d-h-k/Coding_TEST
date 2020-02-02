@@ -1,0 +1,42 @@
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+bool is_prime(int num);
+
+int main(int argc, char** argv)
+{
+	int i;
+	int T;
+	int buf,answer=0;
+	//freopen("input.txt", "r", stdin);
+	cin>>T;
+	for(i = 1; i <= T; ++i)
+	{
+		/////////////////////////////////////////////////////////////////////////////////////////////
+		/**/
+		/////////////////////////////////////////////////////////////////////////////////////////////
+		cin>>buf;
+		if(is_prime(buf)) {
+			answer++;
+		}
+		
+	}
+	printf("%d\n",answer);
+	return 0;//
+}
+bool is_prime(int num) {
+	if(num==1 || num == 0) {
+		return false;
+	}
+	int sqnum = sqrt(num);
+	for(int i=2 ; i<num ; i++) {
+		if(num%i==0) {
+			return false;
+		}
+	}
+	
+	return true;
+}
