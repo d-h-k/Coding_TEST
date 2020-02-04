@@ -8,7 +8,7 @@ Countermeasure Coding TEST
 
 2. 프로그래머스 : K사 및 IT기업 대비
 
-3. 백준알고리즘 대비 : [백준대비](https://github.com/d-h-k/Coding_TEST/blob/master/BEAK/Readme_BEAKJ.md)
+3. 백준알고리즘 대비 : [백준 진행상황 정리](https://github.com/d-h-k/Coding_TEST/blob/master/BEAK/Readme_BEAKJ.md)
 
 
 
