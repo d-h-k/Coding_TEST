@@ -41,13 +41,13 @@ https://code.plus/course/32
   9. C/C++에서 반환형이 void가 아닌 main이 아닌 함수에서 아무런 값을 반환하지 않았을 때
   10. Stack Overflow : 단순히 스텍을 많이잡아도(main함수 속에 map[1000][1000] 변수를 선언하면) 런타임 에러가 발생하는경우가 있음. 이는 온라인 체점서버의 정책에 의존됨(사이트마다 다름) ->> 이경우 map배열을 전역변수로 옮겨 실행하면 
   11. Human Error in GCC 
-	  ```c
-	  for(int i=1 ; i<=M ; i++) {
-			 for(int j=1; j<=N ; j++) {
-				 scanf("%d ",map[i][j]);//이런경우..
-			 }
-		}
-	 ```
+  ```c
+    for(int i=1 ; i<=M ; i++) {
+      for(int j=1; j<=N ; j++) {
+        scanf("%d ",map[i][j]);//이런경우..
+      }
+    }
+  ```
 
 ## 문제풀이 
 
