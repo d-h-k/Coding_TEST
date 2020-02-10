@@ -10,7 +10,7 @@ Countermeasure Coding TEST
 
 3. 백준알고리즘 대비 : [백준 진행상황 정리](https://github.com/d-h-k/Coding_TEST/blob/master/BEAK/Readme_BEAKJ.md)
 
-4. 송종현저자 황금알책 진행 : [황금알 진행상황 정리]()
+4. SWEA 송종현저자 황금알책 진행 : [황금알 진행상황 정리]()
 
 
 ## 이후 진행할것들
