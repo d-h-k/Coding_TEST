@@ -13,7 +13,9 @@ int main(int argc, char** argv)
 {
 	int n=1000000,gcn;
 	int a, b;
-	for(int i=2 ; i<=n ; i++) {
+	
+	
+	for(int i=2 ; i*i<=n ; i++) {
 		if(check[i] == false) {
 			prime[pn++]=i;
 			for(int j=i*2 ; j<=n ; j+=i) {
@@ -28,35 +30,37 @@ int main(int argc, char** argv)
 			printf("%d ",prime[i]);	
 		}
 	}*/
-
-	scanf("%d",&gcn);
-	if(gcn%2!=0 || gcn==0 || gcn<1) {
-        puts("Goldbach's conjecture is wrong.");
-        return 0;
-    }
-	for(int i=0 ; i<1000000 ; i++) {
-		int temp=gcn-prime[i];
-		if(temp>1) {
-			if(is_prime(temp)) {
-				a=prime[i],b=temp;
-			}
+	do{
+		scanf("%d",&gcn);
+		if(gcn==0) {
+			break;
 		}
-	} 
-
-
-	if(a>b) {
-		int temp = a;
-		a=b;
-		b=temp;
-	}
-	printf("%d %d",a,b);
+		if(gcn%2!=0 || gcn==0 || gcn<1) {
+	        puts("Goldbach's conjecture is wrong.");
+	        return 0;
+	    }
+		for(int i=0 ; i<1000000 ; i++) {
+			int temp=gcn-prime[i];
+			if(temp>1) {
+				if(is_prime(temp)) {
+					a=prime[i],b=temp;
+				}
+			}
+		} 
 	
-
 	
-
+		if(a>b) {
+			int temp = a;
+			a=b;
+			b=temp;
+		}
+		printf("%d %d",a,b);
+			
+	}while(1);
+	
 	return 0;//
 }
 
-int is_prime(int num) {
+int  is_prime(int num) {
 	return !check[num];
 }
