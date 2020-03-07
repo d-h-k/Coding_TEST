@@ -32,10 +32,11 @@ int main(void) {
 			int B = edges[i].second;
 			
 			//C -> D
-			int C = edges[i].first;
-			int D = edges[i].second;
+			int C = edges[j].first;
+			int D = edges[j].second;
 			
-			if(A==B || A==C || A==D || B==C || B==D || C==D ) {
+			if(A==B || A==C || A==D || 
+			B==C || B==D || C==D ) {
 				continue;
 			}
 			
@@ -44,7 +45,8 @@ int main(void) {
 			}
 			
 			for(int E : g[D]){
-                if (A == E || B == E || C == E || D == E) {
+                if (A == E || B == E ||
+				 C == E || D == E) {
                     continue;
                 }
                 cout << 1 << '\n';

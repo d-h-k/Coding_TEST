@@ -12,7 +12,7 @@ bool check[1001];
 	
 void dfs(int node) {
 	check[node] = true;
-	printf("%d", node);
+	printf("%d ", node);
 	for(int i=0 ; i<a[node].size() ; i++) {
 		int next = a[node][i];
 		if(check[next] == false) {
@@ -29,7 +29,7 @@ void bfs(int start) {
 	while( !q.empty() ) {
 		int node = q.front();
 		q.pop();
-		printf("%d",node);
+		printf("%d ",node);
 		for(int i=0 ; i<a[node].size() ; i++) {
 			int next = a[node][i];
 			if(check[next] == false) {
