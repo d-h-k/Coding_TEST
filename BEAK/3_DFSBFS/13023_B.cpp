@@ -3,15 +3,13 @@
 #include <vector>
 
 using namespace std;
-
+int n, m;
 bool a[2000][2000];
 vector<int> g[2000];
 vector<pair<int,int>> edges;
 
-int n, m;
-
 int main(void) {
-    //printf("Hello world!");
+    //printf(" SWEA13023");
 	scanf("%d %d",&n,&m);
 	
 	for(int i=0; i<m ; i++) {
