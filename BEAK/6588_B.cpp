@@ -1,125 +1,77 @@
 #include <iostream>
-#include <cstring>
+#include <vector>
+
+#define MAX 1000000
 
 using namespace std;
-
-int prime[50001] = {0,};//prime svae arr
-int pn=0; // number of prime
-
-bool np_check[100001] = {false,};//false = YES prime ,  true = NO prime
-
 const int DEBUG = 1;
-
-int  is_prime(int num) {
-	return !np_check[num];
-}
+//
+//vector<bool> check(MAX+1);
+//vector<int> prime_vec;
+bool check[MAX+3];
+int prime_vec[MAX+3];
+int pn;
 
 int main(int argc, char** argv)
 {
-	int n=0,gcn;
-	int a, b;
-	int gol_num = 0;
-	//init
+//	ios::sync_with_stdio(false);
+//	cin.tie(NULL);
+//	cout.tie(NULL);
+	
+	//get prime - by eratos
+	check[0] = check[1] = true;//0,1 is prime exception 
+	
+	for(int i=2 ; i<=MAX ; i++) {
+		if(check[i] == false) {
+			prime_vec[pn] = i;
+			pn++;
+			
+			for(int j = i*2  ; j<=MAX ; j += i) {
+				check[j] = true;
+			}
+		}
+	}
+	
+	int N;
 	
 	while(1) {
-		//init
-		pn=0;
-		memset(np_check,false,sizeof(np_check));
-		memset(prime,0,sizeof(prime));
-		//
-		scanf("%d",&gol_num);
-		if(gol_num==0) {
+		//cin>>N;
+		scanf("%d",&N);
+		if(N==0) {
 			exit(1);
 		}
-		else {
-			//1. get prime table
-			for(int i=2 ; i*i<=gol_num ; i++) {
-				if( np_check[i] == false ) {
-					prime[pn]=i;
-					pn++;
-					
-					for(int j=2 ; j*(i)<=gol_num ; j++) {
-						np_check[i] = true;
-						
-					}
-				}
-				else {
-				}		
-			}
+		
+		/*
+		else if(N<=6) {
+			cout << "Goldbach's conjecture is wrong.\n";
+			continue;
 			
-			//2. use pritbl, brute-Force search
-			for(int i=0 ; i<pn ; i++) {
-				int temp = gol_num - prime[i];
-				
-				if(temp == prime[i]) {
-						printf("%d = %d + %d\n",gol_num,temp,prime[i]);
-						break;
-					}
-					else if(temp < prime[i]) {
-						printf("Goldbach's conjecture is wrong.");
-						break;
-					}
-					else {
-						
-					}
-				
-			}
-			
-			/*
-			if(DEBUG) {
-				for(int i=0 ; i<pn ; i++) {
-					printf("%d ",prime[i]);	
-				}
-			}*/
-			
-			
-		}	
-	}
-	
-	
-	/*for(int i = 2 ; i*i <= n ; i++) {
-		if(check[i] == false) {
-			prime[pn++] = i;
-			for(int j = i*2 ; j <= n ; j+=i) {
-				check[j]=true;
-			}
+		}else {
 		}
-	}
-	*/
+		*/
+		
+		//N = prime_vec[i] + b //이 되는 소수 b를 찾음. 즉, b = N - prime_vec[i] 가 소수인지 아닌지 판단하면 됨.
+        bool is_find = false;
 
-	
-	
-	
-	/*
-	///
-	do{
-		scanf("%d",&gcn);
-		if(gcn==0) {
-			break;
-		}
-		if(gcn%2!=0 || gcn==0 || gcn<1) {
-	        puts("Goldbach's conjecture is wrong.");
-	        return 0;
-	    }
-		for(int i=0 ; i<1000000 ; i++) {
-			int temp=gcn-prime[i];
-			if(temp>1) {
-				if(is_prime(temp)) {
-					a=prime[i],b=temp;
-				}
-			}
-		} 
-	
-	
-		if(a>b) {
-			int temp = a;
-			a=b;
-			b=temp;
-		}
-		printf("%d %d",a,b);
+        for (int i = 0; prime_vec[i] < N; i++)
+        {
+            int a = prime_vec[i];
+            int b = N-prime_vec[i];
 			
-	}while(1);
-	*/
+            if (check[b] == false)
+            {
+                cout << N << " = " << a << " + " << b << "\n";
+                is_find = true;
+                break;
+            }
+        }
+
+        if (!is_find) {
+        	cout << "Goldbach's conjecture is wrong.\n";
+		}
+            
+	}
+	
 	
 	
 	return 0;//
