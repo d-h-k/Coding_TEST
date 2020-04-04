@@ -1,10 +1,13 @@
-
 #include<iostream>
 #include<algorithm>
 
 using namespace std;
-int a[10] = {0};
-int num[10] = {0};
+vector<int> a = {0,};
+vector<int> num= {0,};
+const int DEBUG = 1;
+bool comp (int a, int b) {
+	return a<b;
+}
 
 void go(int index, int start, int n, int m);
 
@@ -15,10 +18,13 @@ int main(int argc, char** argv)
 	//freopen(".\testdata\14500_B.txt", "r", stdin);
 	scanf("%d %d",&N,&M);
 	for(int i=0 ; i<N ; i++) {
-		scanf("%d",&num[i+1]);
+		scanf("%d",&num[i]);
 	}
-	sort(num+1,num+N+1);
 	
+	sort(num.begin(),num.begin()+N);
+	for(int i=0 ; i<N ; i++) {
+		if(DEBUG) printf("%d  ",num[i]);
+	}
 	go(0,1,N,M);
 	
 	
@@ -27,7 +33,8 @@ int main(int argc, char** argv)
 
 
 void go(int index ,int start, int n, int m) {
-	if(index == m) {
+	if(DEBUG) printf("index:%d ,start:%d ,n:%d ,m:%d\n",index,start,n,m);
+	if(index == n) {
 		for(int i=0 ; i<m ; i++) {
 			printf("%d ",a[i]);
 		}
@@ -35,7 +42,7 @@ void go(int index ,int start, int n, int m) {
 		return;
 	}
 	else {
-		for(int i=start; i<=n ; i++) {
+		for(int i=start; i<n ; i++) {
 			
 			a[index] = num[i];
 			go(index+1,start+1,n,m);
