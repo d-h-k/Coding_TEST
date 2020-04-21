@@ -1,5 +1,5 @@
 # Coding_TEST
-Countermeasure Coding TEST : 04/05 : PC고장나서 못하고있음(~04/07 ㅠㅠ) 내가 다시는 LG그램 안산다.. 헬쥐가 헬쥐하네 시벌
+Countermeasure Coding TEST : 04/05 : PC고장나서 못하고있음(~04/07 ㅠㅠ) 내가 다시는 LG그램 안산다.. 헬쥐가 헬쥐하네 시벌!! -> 또 엘지노트북 삼 헤ㅔㅎㅎ
 
 
 ## 3대장 까부수기!!!
