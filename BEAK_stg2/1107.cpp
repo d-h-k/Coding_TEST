@@ -1,7 +1,10 @@
-// 1339번 단어수학 문제 
-//https://www.acmicpc.net/problem/1339
+// 리모콘 문제  , 1107번 
+//https://www.acmicpc.net/problem/1107
 #include <cstdio>
 #include <iostream>
+#include <string>
+#include <vector>
+
 using namespace std;
 bool broken[10];
 
@@ -14,7 +17,7 @@ int posible(int c) {
 			return 1;
 		}
 	}
-	int len= 0;
+	int len= 0; 
 	while(c>0) {
 		if(broken[c%10]) {
 			return 0;
@@ -28,14 +31,15 @@ int posible(int c) {
 
 
 int main(void) {
-	int n;
+	int n,len;
 	cin >> n;
-	int m;
-	cin >> m;
-	for(int i=0 ; i<m ; i++) {
-		int x;
-		cin >> x;
-		broken[x] = true;
+	vector<string> apb;
+	string temp;
+	
+	
+	for(int i=0 ; i<n ; i++) {
+		cin >> temp;
+		apb.push_back(temp);
 	}
 	
 	int ans = n-100;
@@ -43,6 +47,7 @@ int main(void) {
 	if(ans<0) {
 		ans = -ans;
 	}
+	
 	for(int i=0 ; i<=100000; i++) {
 		int c = i;
 		int len = posible(c);
