@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <cstring>
 
-#define DEBUG 1
+#define DEBUG 0
 
 int main() {
 	char buf[1000];
