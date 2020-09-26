@@ -6,13 +6,13 @@ struct _pos{
 	int y;
 }typedef pos;
 
-pos get_where_maxi(int *dat,int y, int x) {
+pos get_where_maxi(int dat[][],int y, int x) {
 	pos ret;
 	return ret;
 }
 
 
-pos get_where_mini(int * dat, int y,int x) {
+pos get_where_mini(int dat[][], int y,int x) {
 	pos ret;
 	return ret;
 }
