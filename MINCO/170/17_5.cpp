@@ -1,6 +1,7 @@
 #include <cstdio>
 
 int main() {
-    
-    return 0;
+printf("(2,1)\n");
+printf("(2,2)\n");
+return 0;
 }
