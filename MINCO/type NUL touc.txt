@@ -1,1 +1,4 @@
-type NUL > EmptyFile.txt
+type NUL > EmptyFile.cpp
+
+
+type NUL > 1851.cpp
